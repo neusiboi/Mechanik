@@ -2,6 +2,7 @@ from scipy.integrate import quad
 from math import cos, exp, pi, sin, sqrt
 from scipy.misc import derivative
 
+dddd
 def curve (x): #Die Kurve welche die Bahn beschreibt
     return -sqrt(1/2*x)
 
