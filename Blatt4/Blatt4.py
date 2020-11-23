@@ -6,8 +6,6 @@ import matplotlib.pyplot as plt
 from math import sqrt, exp, sin, cos
 from numpy import log as ln
 
-JanMachts
-
 t = 0 #Startzeit
 T = 20 #Simulationsdauer
 dt = 0.01 #Schrittgröße der Zeit
