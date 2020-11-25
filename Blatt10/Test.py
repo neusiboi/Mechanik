@@ -12,7 +12,10 @@ y2 = [1/2, 3]
 y3 = [1/2 , 1]
 y4 = [-1/2 ,1]
 
-t = np.linspace(1, 1.001 ,10) 
+
+time = 0
+t = np.linspace(0, 0.01+time ,1000) 
+
 
 from scipy.integrate import odeint
 def Solutions(y):
@@ -24,13 +27,13 @@ sol2 = Solutions(y2)
 sol3 = Solutions(y3)
 sol4 = Solutions(y4)
 
+
 import matplotlib.pyplot as plt
 
-plt.plot(sol1[:, 0],sol1[:, 1], linewidth = 5)
-plt.plot(sol2[:, 0],sol2[:, 1], linewidth = 5)
-plt.plot(sol3[:, 0],sol3[:, 1], linewidth = 5)
-plt.plot(sol4[:, 0],sol4[:, 1], linewidth = 5)
-
+plt.plot(sol1[:, 0],sol1[:, 1], linewidth = 1)
+plt.plot(sol2[:, 0],sol2[:, 1], linewidth = 1)
+plt.plot(sol3[:, 0],sol3[:, 1], linewidth = 1)
+plt.plot(sol4[:, 0],sol4[:, 1], linewidth = 1)
 
 plt.xlabel('q')
 plt.ylabel('p')
