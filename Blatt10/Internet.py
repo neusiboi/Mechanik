@@ -9,18 +9,7 @@ def dgl(y,t):
 y_0 = [0 ,2]
 
 
-t = np.linspace(0, 10 ,100) 
-
-"""
-t = 0
-T = 10
-dt = 0.2
-L_t = []
-while t<T:
-    t +=dt
-    L_t.append(t)
-"""
-
+t = [10, 10.001] #np.linspace(10, 10 ,100) 
 
 
 
