@@ -13,8 +13,8 @@ y3 = [1/2 , 1]
 y4 = [-1/2 ,1]
 
 
-time = 1
-stepsize = 10000
+time = 10
+stepsize = 1000
 t = np.linspace(0, time ,stepsize) 
 
 
