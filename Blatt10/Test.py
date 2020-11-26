@@ -24,7 +24,7 @@ y_s2 = np.linspace(1,3,1000)
 for steps in y_s2:
     L_ys2.append([-1/2,steps])
 
-time = 0
+time = 10
 stepsize = 100
 t = np.linspace(0, time ,stepsize) 
 
