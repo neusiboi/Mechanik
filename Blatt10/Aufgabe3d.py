@@ -10,15 +10,22 @@ def Energy(y):
 
     V_Zähler = m*y[1]**2+2*m*y[3]**2-2*m*y[1]*y[3]*cos(y[0]-y[2])
     V_Nenner = a**2*m*(3*m-m*cos(2*(y[0]-y[2])))
-    
+
     return T+V_Zähler/V_Nenner
 
-
-ys = 0 ,0 ,0 ,0
+b=0.2
+ys = 0 ,b ,0 ,1/10*(5*b-sqrt(5)*sqrt(2-5*b**2))
 print(Energy(ys))
+#for E=-2.9: ys = 0 ,0.5 ,0 ,1/10*(5*b-sqrt(5)*sqrt(2-5*b**2)), b=0.5
+#for E=0: ys = 0 ,b, pi/2, sqrt(8-b**2)/sqrt(2)
+#for E=10: ys = 0 ,b, 0 , 1/2*(b+sqrt(52-b**2))
+
+
 Given_Value = -2.9
 
-if Energy(ys) == Given_Value:
+
+if (Energy(ys)-Given_Value)**2<0.1:
+    print("Its close enough and we start calculating the solution")
     def differentialeq(y, t):
         theta1, p_theta1, theta2, p_theta2 = y
 
