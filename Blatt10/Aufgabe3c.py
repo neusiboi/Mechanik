@@ -57,8 +57,8 @@ import matplotlib.pyplot as plt
 
 
 plt.plot(PlotPoints_q2,PlotPoints_p2,'bo',  markersize = 3)
-plt.xlabel('q2')
-plt.ylabel('p2')
+plt.xlabel('q1')
+plt.ylabel('p1')
 plt.grid() 
 plt.show()
 
