@@ -21,7 +21,7 @@ def differentialeq(y, t):
     return theta1dot, p_theta1dot, theta2dot, p_theta2dot
 
 time = 3000
-t = np.linspace(0,time,10000)
+t = np.linspace(0,time,10**6)
 
 from scipy.integrate import odeint
 
@@ -37,26 +37,15 @@ print("Finished with solving the Differential-equation")
 PlotPoints_q = []
 PlotPoints_p = []
 for things in Points:
-    if -0.1<things[0]<0.1 and things[1]>0:
+    if things[0]**2<1e-07 and things[1]>0:
         PlotPoints_q.append(things[2])
         PlotPoints_p.append(things[3])
-
-
-PlotPoints_q2 = []
-for things in PlotPoints_q:
-  if things not in PlotPoints_q2:
-    PlotPoints_q2.append(things)
-
-PlotPoints_p2 = []
-for things in PlotPoints_p:
-  if things not in PlotPoints_p2:
-    PlotPoints_p2.append(things)
 
 
 import matplotlib.pyplot as plt
 
 
-plt.plot(PlotPoints_q2,PlotPoints_p2,'ro',  markersize = 3)
+plt.plot(PlotPoints_q,PlotPoints_p,'ro',  markersize = 3)
 plt.xlabel('q2')
 plt.ylabel('p2')
 plt.grid() 
