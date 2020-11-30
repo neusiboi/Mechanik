@@ -7,27 +7,28 @@ def dgl(y,t):
     return dydt
 
 
-x_s = np.linspace(-1/2,1/2,1000)
+number_of_points = 10**3
+x_s = np.linspace(-1/2,1/2,number_of_points)
 L_xs = []
 L_xs2 = []
 for steps in x_s:
     L_xs.append([steps, 3])
     L_xs2.append([steps*-1 ,1 ])
 
-y_s = np.linspace(3,1,1000)
+y_s = np.linspace(3,1,number_of_points)
 L_ys = []
 L_ys2 = []
 for steps in y_s:
     L_ys.append([1/2,steps])
 
-y_s2 = np.linspace(1,3,1000)
+y_s2 = np.linspace(1,3,number_of_points)
 for steps in y_s2:
     L_ys2.append([-1/2,steps])
 
-time = 1
+time = 1000
 stepsize = 100
 t = np.linspace(0, time ,stepsize) 
-
+print("starting")
 
 from scipy.integrate import odeint
 
@@ -38,8 +39,10 @@ def Solutions(y):
 
 sol_xs = []
 sol_xs2 = []
+print("solving the top side")
 for points in L_xs:
     sol_xs.append(Solutions(points))
+print("solving the right side")
 for points in L_xs2:
     sol_xs2.append(Solutions(points))
 
@@ -47,8 +50,10 @@ for points in L_xs2:
 
 sol_ys = []
 sol_ys2 = []
+print("solving the bottom side")
 for points in L_ys:
     sol_ys.append(Solutions(points))
+print("solving the left side")
 for points in L_ys2:
     sol_ys2.append(Solutions(points))
 
