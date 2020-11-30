@@ -13,15 +13,17 @@ def Energy(y):
 
     return T+V_Zähler/V_Nenner
 
-b=0.2
-ys = 0 ,b ,0 ,1/10*(5*b-sqrt(5)*sqrt(2-5*b**2))
+b=0.1
+ys = 0, -sqrt(2 *(24 + sqrt(2))), pi/4,  -1/2 *sqrt(24 + sqrt(2))
 print(Energy(ys))
-#for E=-2.9: ys = 0 ,0.5 ,0 ,1/10*(5*b-sqrt(5)*sqrt(2-5*b**2)), b=0.5
+#for E=-2.9: ys = 0 ,b ,0 ,1/10*(5*b-sqrt(5)*sqrt(2-5*b**2)), b=0.5
+#intervall 1e-07
 #for E=0: ys = 0 ,b, pi/2, sqrt(8-b**2)/sqrt(2)
 #for E=10: ys = 0 ,b, 0 , 1/2*(b+sqrt(52-b**2))
+#Intervall 1e-03
 
 
-Given_Value = -2.9
+Given_Value = 10
 
 
 if (Energy(ys)-Given_Value)**2<0.1:
@@ -42,7 +44,7 @@ if (Energy(ys)-Given_Value)**2<0.1:
         return theta1dot, p_theta1dot, theta2dot, p_theta2dot
 
     time = 3000
-    t = np.linspace(0,time,10000)
+    t = np.linspace(0,time,10**7)
 
     from scipy.integrate import odeint
 
@@ -53,30 +55,20 @@ if (Energy(ys)-Given_Value)**2<0.1:
     print("Starting with solving the Differential-equation")
     Points = Solutions(ys) #Note its a list of Lists 
     print("Finished with solving the Differential-equation")
-
+    print(Points)
     PlotPoints_q = []
     PlotPoints_p = []
     for things in Points:
-        if -0.1<things[2]<0.1 and things[3]>0:
+        if things[2]**2<1e-01 and things[3]>0:
             PlotPoints_q.append(things[0])
             PlotPoints_p.append(things[1])
 
-
-    PlotPoints_q2 = []
-    for things in PlotPoints_q:
-        if things not in PlotPoints_q2:
-            PlotPoints_q2.append(things)
-
-    PlotPoints_p2 = []
-    for things in PlotPoints_p:
-        if things not in PlotPoints_p2:
-            PlotPoints_p2.append(things)
 
 
     import matplotlib.pyplot as plt
 
 
-    plt.plot(PlotPoints_q2,PlotPoints_p2,'bo',  markersize = 3)
+    plt.plot(PlotPoints_q,PlotPoints_p,'ro',  markersize = 3)
     plt.xlabel('q1')
     plt.ylabel('p1')
     plt.grid() 
