@@ -15,20 +15,19 @@ for steps in x_s:
     L_xs.append([steps, 3])
     L_xs2.append([steps*-1 ,1 ])
 
-y_s = np.linspace(3,1,number_of_points)
+y_s = np.linspace(3,1,2*number_of_points)
 L_ys = []
 L_ys2 = []
 for steps in y_s:
     L_ys.append([1/2,steps])
 
-y_s2 = np.linspace(1,3,number_of_points)
+y_s2 = np.linspace(1,3,2*number_of_points)
 for steps in y_s2:
     L_ys2.append([-1/2,steps])
 
-time = 1000
+time = 10
 stepsize = 100
 t = np.linspace(0, time ,stepsize) 
-print("starting")
 
 from scipy.integrate import odeint
 
@@ -56,7 +55,7 @@ for points in L_ys:
 print("solving the left side")
 for points in L_ys2:
     sol_ys2.append(Solutions(points))
-
+print("done Solving the differential-equations")
 
 
 import matplotlib.pyplot as plt
