@@ -44,7 +44,7 @@ if (Energy(ys)-Given_Value)**2<0.1:
         return theta1dot, p_theta1dot, theta2dot, p_theta2dot
 
     time = 3000
-    t = np.linspace(0,time,10**7)
+    t = np.linspace(0,time,10**9)
 
     from scipy.integrate import odeint
 
@@ -55,11 +55,10 @@ if (Energy(ys)-Given_Value)**2<0.1:
     print("Starting with solving the Differential-equation")
     Points = Solutions(ys) #Note its a list of Lists 
     print("Finished with solving the Differential-equation")
-    print(Points)
     PlotPoints_q = []
     PlotPoints_p = []
     for things in Points:
-        if things[2]**2<1e-01 and things[3]>0:
+        if things[2]**2<1e-03 and things[3]>0:
             PlotPoints_q.append(things[0])
             PlotPoints_p.append(things[1])
 
